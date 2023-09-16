@@ -43,12 +43,14 @@ static_assert(sizeof(DC_Config) == 0x14);
 
 enum {
     NOTIF_LED_OFF               = 0,
-    NOTIF_LED_ORANGE_BLINKING   = 1 << 0,
     NOTIF_LED_ORANGE            = 1 << 1,
-    NOTIF_LED_RED_BLINKING      = 1 << 2,
     NOTIF_LED_RED               = 1 << 3,
-    NOTIF_LED_BLUE_BLINKING     = 1 << 4,
     NOTIF_LED_BLUE              = 1 << 5,
+    NOTIF_LED_PURPLE            = NOTIF_LED_RED | NOTIF_LED_BLUE,
+    NOTIF_LED_ORANGE_BLINKING   = NOTIF_LED_ORANGE | (1 << 0),
+    NOTIF_LED_RED_BLINKING      = NOTIF_LED_RED | (1 << 2),
+    NOTIF_LED_BLUE_BLINKING     = NOTIF_LED_BLUE | (1 << 4),
+    NOTIF_LED_PURPLE_BLINKING   = NOTIF_LED_RED_BLINKING | NOTIF_LED_BLUE_BLINKING,
 };
 
 int initializeUtils(void);
